@@ -1,0 +1,35 @@
+---
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/component/navigation-menu";
+---
+
+
+ <NavigationMenu class="w-full bg-slate-900 p-4">
+  <NavigationMenuList class="flex flex-row justify-center items-center space-x-4">
+
+    <NavigationMenuItem value="item-one">
+      <NavigationMenuTrigger class="bg-white text-black hover:text-blue-500 p-4">Home</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="/docs/" class="block select-none space-y- rounded-md p-3 
+        leading-none no-underline outline-none hover:bg-accent hover:text-accent-foreground">Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+      <NavigationMenuItem value="item-twoq">
+      <NavigationMenuTrigger class="bg-white text-black hover:text-blue-500 p-4">About</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink class="block select-none space-y- rounded-md p-3 
+        leading-none no-underline outline-none hover:bg-accent hover:text-accent-foreground" href="/docs/">Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+
+  </NavigationMenuList>
+</NavigationMenu> 
+
+

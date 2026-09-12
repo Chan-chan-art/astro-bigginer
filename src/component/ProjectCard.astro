@@ -1,0 +1,27 @@
+---
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/component/card"
+import { Button } from '@/component/button'
+
+const { project, buttonText } = Astro.props;
+---
+
+<Card class="w-[350px]" slot="preview">
+
+  <CardHeader>
+    <CardTitle>{project.data.title}</CardTitle>
+       <span>{project.data.author}</span>
+        <span>{project.data.published.toDateString()}</span>
+       <h2><CardDescription>{project.data.description}</CardDescription></h2>
+  </CardHeader>
+
+  <CardContent class="flex flex-col gap-4">
+    <div class="flex w-full flex-col gap-2">
+    <slot />
+    </div>
+  </CardContent>
+  
+  <CardFooter class="flex justify-between">
+    <Button>{buttonText}</Button>
+  </CardFooter>
+
+</Card>

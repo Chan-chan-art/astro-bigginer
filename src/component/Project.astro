@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { Badge } from "../component/badge";
+const allArticles = await getCollection("articles");
+import ProjectCard from "../component/ProjectCard.astro";
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 p-8">
+  {
+  allArticles.map((article: any) => (
+    <ProjectCard project={article} buttonText="View Article">
+     
+      
+     <div class="grid grid-cols-3 gap-4">
+      {article.data.tech.map((item: any) => (
+        <Badge variant="info">
+          <h3 class="p-2 text-center text-sm">{item}</h3></Badge>
+      ))}
+      </div>
+    </ProjectCard>
+  
+  ))
+  }
+  </div>

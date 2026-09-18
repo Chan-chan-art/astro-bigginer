@@ -8,9 +8,10 @@ const { project, buttonText } = Astro.props;
 <Card class="w-[350px]" slot="preview">
 
  <CardHeader>
-    <img class="oblect-cover h-32 w-full rounded-md" src={project.data.image} alt={project.data.title} />
+       <CardTitle class="mb-2">{project.data.title}</CardTitle>
+       <img class="oblect-cover h-40 w-full rounded-md" src={project.data.image} alt={project.data.title} />
        <span>{project.data.author}</span>
-        <span>{project.data.published.toDateString()}</span>
+       <span>{project.data.published.toDateString()}</span>
        <h2><CardDescription>{project.data.description}</CardDescription></h2>
   </CardHeader>
 
@@ -21,7 +22,9 @@ const { project, buttonText } = Astro.props;
   </CardContent>
   
   <CardFooter class="flex justify-between">
-    <Button>{buttonText}</Button>
+
+<Button href={`/${project.data.slug}`}>{buttonText}</Button>
+   
   </CardFooter>
 
 </Card>

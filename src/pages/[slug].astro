@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import NavBar from '../component/NavBar.astro'
 import Button from '../component/button/Button.astro'
+import Badge from '../component/badge/Badge.astro'
 import { getCollection, render } from 'astro:content';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -25,14 +26,24 @@ const { Content } = await render(article);
     <span class="p-2">on: {article.data.published.toDateString()}</span>
     </h3>
     <Button class="mt-5" href="/">Back to projects</Button>
-    </div>
+  </div>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div class="p-8"> <img src={article.data.image} alt={article.data.title} class="object-coverw-full h-72 bg-top rounded-md shadow-md"/></div>
     <div class="p-8"> 
     <Content />
+    <Button variant="warning" href="{article.data.url">More Info</Button>
   </div>
     </div>
     
+      </div>
+      <section class="p-4">
+  <h2 class="font-bold p-4 text-1xl italic">Tags</h2>
+  <div class="flex -row mx-auto items-center text-center">
+      {article.data.tech.map((item: any) => (
+        <Badge variant="info">
+          <h3 class="p-2 text-center text-sm">{item}</h3></Badge>
+      ))}
 </div>
+</section>
 </Layout>

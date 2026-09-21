@@ -10,7 +10,7 @@ import ProjectCard from "../component/ProjectCard.astro";
   {
   allArticles.map((article: any ) => (
      <ProjectCard project={article} buttonText="View Article">
-     
+    
       
      <div class="grid grid-cols-3 gap-4">
       {article.data.tech.map((item: any) => (

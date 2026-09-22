@@ -7,19 +7,37 @@ const title = "Portfolio";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+
+	<!-- <link rel="icon type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="viewport" content="width=device-width"/>
+	<meta name="generator" content="{Astro.generator}"/> -->
+
+	
+
 	<title>{title}</title>
+	<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.heading{
+	font-family: "Rubik", sans-serif;
+}
+div{
+	font-family: "Roboto", sans-serif;
+}
+.orange{
+	color: orange;
+}
+.orange-btn{
+	background-color:orange;
+}
+</style>
 </head>
-<body class="m-0 p-0 w-full min-h-screen bg-slate-950">
+<body>
 
-
-	<!-- 2. Main content area sits underneath -->
-	<main class="max-w-6xl mx-auto px-4 mt-8 text-white">
-
+   <!-- <NavBar /> -->
 		<slot />
 				
-	</main>
+
 
 </body>
 </html>

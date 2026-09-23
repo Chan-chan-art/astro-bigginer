@@ -1,19 +1,20 @@
 ---
 import { getCollection } from "astro:content";
 import { Badge } from "../component/badge";
-const allArticles = await getCollection("articles");
+import Button from "../component/button/Button.astro"
+const allProjects = await getCollection("projects");
 import ProjectCard from "../component/ProjectCard.astro";
 
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3 p-8">
+<div class="bg-[#24361C] p-8">
   {
-  allArticles.map((article: any ) => (
-     <ProjectCard project={article} buttonText="View Article">
+  allProjects.map((project: any ) => (
+     <ProjectCard project={project} buttonText="View Article">
     
       
      <div class="grid grid-cols-3 gap-4">
-      {article.data.tech.map((item: any) => (
+      {project.data.tech.map((item: any) => (
         <Badge variant="info">
           <h3 class="p-2 text-center text-sm">{item}</h3></Badge>
       ))}
@@ -22,4 +23,5 @@ import ProjectCard from "../component/ProjectCard.astro";
   
   ))
   }
+  <Button size="lg" href="/" class="uppercase text-2xl orange heading">More Projects</Button>
   </div>

@@ -4,27 +4,43 @@ import { Button } from '@/component/button'
 
 const { project, buttonText } = Astro.props;
 ---
-
+<div class="bg-[#24361C] p-8">
 <Card class="w-[350px]" slot="preview">
 
+<div class="grid grid-cols-1 md:grid-cols-2">
  <CardHeader>
-       <CardTitle class="mb-2">{project.data.title}</CardTitle>
-       <img class="oblect-cover h-40 w-full rounded-md" src={project.data.image} alt={project.data.title} />
-       <span>{project.data.author}</span>
-       <span>{project.data.published.toDateString()}</span>
-       <h2><CardDescription>{project.data.description}</CardDescription></h2>
+       <CardTitle>{project?.data?.title}</CardTitle>
+       <img class="oblect-cover h-40 w-full rounded-md" src={project?.data?.image} alt={project?.data?.title} />
+       <span>{project?.data?.author}</span>
+       <span>{project?.data?.published.toDateString()}</span>
+       <h2 class="text-2xl"><CardDescription>{project?.data?.description}</CardDescription></h2>
   </CardHeader>
 
   <CardContent class="flex flex-col gap-4">
     <div class="flex w-full flex-col gap-2">
-    <slot />
+    <slot />  
     </div>
+    <h3>Role: <span class ="orange" >{project?.data?.role}</span></h3>
+    <div class="flex">
+      <h3>Skills Used:</h3>
+      <div class="flex">
+        {
+           project && project.data && project.data.skills && project.data.skills.map((item: any) => (
+        
+           <h3 class="orange"><span class="text-white"></span>{item}<span class="text-white"></span></h3>
+          ))
+        }
+      </div>
+    </div>
+    <h3>Project link: <a href="{project.data.website}" class="orange underline">{project?.data?.website}</a></h3>
   </CardContent>
+</div>
   
   <CardFooter class="flex justify-between">
 
-<Button href={`/${project.data.slug}`}>{buttonText}</Button>
+<Button href={`/${project?.data?.slug}`}>View Project{buttonText}</Button>
    
   </CardFooter>
 
 </Card>
+</div>

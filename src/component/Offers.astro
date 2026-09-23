@@ -6,30 +6,46 @@ const services = [
         feature: ["Basic Coding", "Website Assistance", "Bug Fixing"],        
       },
       {
-        title: "Software",
-        role: "1:1",
-        feature: ["Basic Coding", "Website Assistance", "Bug Fixing"],        
+        title: "Software Development",
+        role: "Software Developer",
+        feature: ["Custom Website Templates", "Website Design", "Website Redesign"],        
       },
       {
-        title: "Software Tutor",
-        role: "1:1",
-        feature: ["Basic Coding", "Website Assistance", "Bug Fixing"],        
+        title: "Branding",
+        role: "Designer",
+        feature: ["Logo Design", "Website Design", "Artwork"],        
       },
       {
-        title: "Software Tutor",
-        role: "1:1",
-        feature: ["Basic Coding", "Website Assistance", "Bug Fixing"],        
+        title: "SEO",
+        role: "Audit",
+        feature: ["Site Audit", "Google Rankings", "Analytics"],        
       },
 ];
 ---
-<div class="bg-[#532224] py-1 text-white">
+<div class="bg-[#532224] px-4 py-25 text-white">
   <div class="grid grid-cols-1 md:grid-cols-2">
-    <div>
+    <div class="w-full p-4">
       <h1 class="orange text-7xl heading uppercase font-bold">What I Offer</h1>
       <p>
         I provide expert support to bring your project to life, boost
         conversion matrics, and demystify complex code structures.
       </p>
     </div>
+    <div>
+    {
+      services.map ((service: any)=>(
+      <div class="p-5">
+      <h2 class="orange font bold uppercase text-4xl">{service.title}</h2>
+      <h3 class="text-2xl mb-8">{service.role}</h3>
+      <ul class="mb-8">
+        {service.feature.map((feature: any) => (
+        <li>{feature}</li>
+        ))}
+        </ul>
+        </div>
+      ))
+    }    
+    
   </div>
+</div>
 </div>

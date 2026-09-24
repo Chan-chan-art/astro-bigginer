@@ -1,46 +1,44 @@
 ---
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/component/card"
-import { Button } from '@/component/button'
+//import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/component/card"
 
-const { project, buttonText } = Astro.props;
+const { project } = Astro.props;
 ---
-<div class="bg-[#24361C] p-8">
-<Card class="w-[350px]" slot="preview">
+<!--<div class="bg-[#24361C] p-8">
+<Card class="w-[350px]" slot="preview">-->
 
-<div class="grid grid-cols-1 md:grid-cols-2">
- <CardHeader>
-       <CardTitle>{project?.data?.title}</CardTitle>
-       <img class="oblect-cover h-40 w-full rounded-md" src={project?.data?.image} alt={project?.data?.title} />
-       <span>{project?.data?.author}</span>
-       <span>{project?.data?.published.toDateString()}</span>
-       <h2 class="text-2xl"><CardDescription>{project?.data?.description}</CardDescription></h2>
-  </CardHeader>
+<div class="grid grid-cols-1 md:grid-cols-2 p-8 text-white">
+<div class="p-8 ">
+<img class="w-full rounded-md" src=`../images/${project?.data?.image}` />
+</div>
 
-  <CardContent class="flex flex-col gap-4">
-    <div class="flex w-full flex-col gap-2">
-    <slot />  
+ <!--<CardHeader>-->
+     <div class="p-8">
+       <small>{project?.data?.year}</small>
+       <h2 class="orange text-4xl font-bold uppercase">{project?.data?.title}</h2>
+       <h3 class="text-2xl">{project?.data?.description}</h3>
+<!--</CardHeader>-->
+      <div class="pt-8 pb-4 max-w-lg">
+      <slot />
     </div>
     <h3>Role: <span class ="orange" >{project?.data?.role}</span></h3>
-    <div class="flex">
+    <div class="flex flex-wrap gap-2 pt-4">
       <h3>Skills Used:</h3>
       <div class="flex">
         {
-           project && project.data && project.data.skills && project.data.skills.map((item: any) => (
+           project?.data?.skills.map((item: any) => (
         
            <h3 class="orange"><span class="text-white"></span>{item}<span class="text-white"></span></h3>
           ))
         }
       </div>
     </div>
-    <h3>Project link: <a href="{project.data.website}" class="orange underline">{project?.data?.website}</a></h3>
-  </CardContent>
+    <h3>Project link: <a href={project?.data?.website} class="orange underline" target="blank">{project?.data?.website}</a></h3>
+</div>
 </div>
   
-  <CardFooter class="flex justify-between">
+ <!-- <CardFooter class="flex justify-between">
 
-<Button href={`/${project?.data?.slug}`}>View Project{buttonText}</Button>
+<Button href={`/${project.data.slug}`}>View Project{buttonText}</Button>
    
-  </CardFooter>
+  </CardFooter> -->
 
-</Card>
-</div>

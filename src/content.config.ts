@@ -10,7 +10,7 @@ import { z } from 'astro/zod';
 // 4. Define a `loader` and `schema` for each collection
 
   const projects = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/articles/Projects" }),
+    loader: glob({ pattern: "**/*.md", base: "./src/component/content/Projects" }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),

@@ -1,27 +1,45 @@
 ---
-import { getCollection } from "astro:content";
-import { Badge } from "../component/badge";
+import { getCollection, render} from "astro:content";
 import Button from "../component/button/Button.astro"
 const allProjects = await getCollection("projects");
 import ProjectCard from "../component/ProjectCard.astro";
-
+import Heading from "../component/Heading.astro"
 ---
+<div class="p-8 bg-[#24341C]">
+  <Heading text="Recent Projects" />
 
-<div class="bg-[#24361C] p-8">
   {
-  allProjects.map((project: any ) => (
-     <ProjectCard project={project} buttonText="View Article">
-    
-      
-     <div class="grid grid-cols-3 gap-4">
-      {project.data.tech.map((item: any) => (
-        <Badge variant="info">
-          <h3 class="p-2 text-center text-sm">{item}</h3></Badge>
-      ))}
-      </div>
-    </ProjectCard>
+  // 1. Mark the surrounding function as async
+async function processProjects() {
   
-  ))
-  }
-  <Button size="lg" href="/" class="uppercase text-2xl orange heading">More Projects</Button>
-  </div>
+  // 2. Now you can use await here safely
+  const resolvedProjects = await Promise.all(
+    allProjects.map(async (project) => {
+      // Your async code here
+      return project;
+    })
+  );
+
+  console.log(resolvedProjects);
+}
+}
+<content />
+<ProjectCard />
+
+
+<!--return (
+  <>
+    {allProjects.map(({ project, Content }) => (
+      <ProjectCard key={project.id} project={project}>
+        <Content />
+      </ProjectCard>
+    ))}
+  </>
+);-->
+  
+<Button size="lg" href="/" class="p-24 w-full border border-1 border orange-100 bg-transparent hover:text-black uppercase text-9xl orange heading">More Projects</Button>
+</div>
+</div>
+
+
+  

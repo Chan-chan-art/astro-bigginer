@@ -1,45 +1,31 @@
 ---
 import { getCollection, render} from "astro:content";
 import Button from "../component/button/Button.astro"
-const allProjects = await getCollection("projects");
 import ProjectCard from "../component/ProjectCard.astro";
 import Heading from "../component/Heading.astro"
+
+const allProjects = await getCollection("projects");
 ---
-<div class="p-8 bg-[#24341C]">
+
+<div class="p-8 bg-[#24361C]">
+<div>
   <Heading text="Recent Projects" />
 
-  {
-  // 1. Mark the surrounding function as async
-async function processProjects() {
-  
-  // 2. Now you can use await here safely
-  const resolvedProjects = await Promise.all(
-    allProjects.map(async (project) => {
-      // Your async code here
-      return project;
-    })
-  );
-
-  console.log(resolvedProjects);
+{
+  allProjects.map(async (project) => {
+    const { Content } = await render(project);
+    return (
+     <ProjectCard project={project}>
+          <Content />
+      </ProjectCard > 
+    );
+  })
 }
-}
-<content />
-<ProjectCard />
 
-
-<!--return (
-  <>
-    {allProjects.map(({ project, Content }) => (
-      <ProjectCard key={project.id} project={project}>
-        <Content />
-      </ProjectCard>
-    ))}
-  </>
-);-->
-  
 <Button size="lg" href="/" class="p-24 w-full border border-1 border orange-100 bg-transparent hover:text-black uppercase text-9xl orange heading">More Projects</Button>
 </div>
 </div>
+
 
 
   

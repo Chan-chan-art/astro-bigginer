@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Heading from "../component/Heading.astro";
+
+const videos = [ 
+{
+  title: "How to Build a Portfolio website",
+  description: "A step-by-step guide to creating your own portfolio website using astro",
+  url: "https://www.youtube.com/watch?v=example1",
+},
+{
+  title: "Understanding SEO Basics",
+  description: "Learn the fundamentals of SEO and how to apply them to your website.",
+  url: "https://www.youtube.com/watch?v=example2",
+},
+{
+  title: "Javascript for Beginners",
+  description: "An introduction to Jacascript programming for biginners.",
+  url: "https://www.youtube.com/watch?v=example3",
+}
+];
+---
+
+
+    <div class="p-8 bg-[#532224] px-4 py-32 text-white"> 
+      <div class="p-4">
+        <Heading text="Latest Videos"/>
+          <p class="max-w-4xl mb-8 text-lg">
+           Don't miss out on my latest videos! More, I share insights on
+           software development, SEO, and more. Check out the latest
+           tutorials and guides to enhance your skills and knowledge.
+          </p>
+        </div>
+
+        <!-- filepath: Videos.astro -->
+<div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+  {
+    videos.map((video) => (
+      <div class="p-4">
+        <div class="relative z-20 h-full flex flex-col justify-between p-8">
+        <img src="https://placehold.co/400x400" alt={video.title} class="h-[400px] border border-white border-1 mb-4 w-full object-cover"/>
+          <div class="absolute insert-0 bg-black h-[400px] opacity-50 rounded-lg" />
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div class="bg-orange-500 hover:bg-orange-500 transition-colors duration-200 rounded-full p-4 cursor-pointer shadow-lg"> 
+
+          <svg class="w-8 h-8 text-white ml-l"
+                fill="CurrentCollor"
+                viewBox="0 0 24 24"> 
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM10.6935 15.8458L15.4137 13.059C16.1954 12.5974 16.1954 11.4026 15.4137 10.941L10.6935 8.15419C9.93371 7.70561 9 8.28947 9 9.21316V14.7868C9 15.7105 9.93371 16.2944 10.6935 15.8458Z" />
+          </svg>
+
+          </div>
+          </div>
+
+          <div>
+            <h2 class="text-xl mt-4">{video.title}</h2>
+          </div>
+
+        </div>
+      </div>
+    ))
+  }
+</div>
+</div>
+<Layout />        
+ 

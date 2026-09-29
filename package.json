@@ -12,11 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@iconify-json/mdi": "^1.2.3",
     "@starwind-ui/astro": "^1.2.1",
     "@tabler/icons": "^3.46.0",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
+    "astro-icon": "^1.2.0",
     "tailwind-merge": "^3.6.0",
     "tailwind-variants": "^3.3.1",
     "tailwindcss": "^4.3.3",
@@ -24,5 +26,8 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@iconify-json/skill-icons": "^1.2.4"
   }
 }

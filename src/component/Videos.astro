@@ -5,27 +5,24 @@ import Heading from "../component/Heading.astro";
 const videos = [ 
 {
   title: "How to Build a Portfolio website",
-  description: "A step-by-step guide to creating your own portfolio website using astro",
   url: "https://www.youtube.com/watch?v=example1",
 },
 {
   title: "Understanding SEO Basics",
-  description: "Learn the fundamentals of SEO and how to apply them to your website.",
   url: "https://www.youtube.com/watch?v=example2",
 },
 {
   title: "Javascript for Beginners",
-  description: "An introduction to Jacascript programming for biginners.",
   url: "https://www.youtube.com/watch?v=example3",
 }
 ];
 ---
 
 
-    <div class="p-8 bg-[#532224] px-4 py-32 text-white"> 
+    <div class="p-8 bg-[#532224] px-14 py-25 text-white"> 
       <div class="p-4">
         <Heading text="Latest Videos"/>
-          <p class="max-w-4xl mb-8 text-lg">
+          <p class="max-w-4xl mb-4 mt-8 text-lg">
            Don't miss out on my latest videos! More, I share insights on
            software development, SEO, and more. Check out the latest
            tutorials and guides to enhance your skills and knowledge.
@@ -41,7 +38,7 @@ const videos = [
         <img src="https://placehold.co/400x400" alt={video.title} class="h-[400px] border border-white border-1 mb-4 w-full object-cover"/>
           <div class="absolute insert-0 bg-black h-[400px] opacity-50 rounded-lg" />
           <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="bg-orange-500 hover:bg-orange-500 transition-colors duration-200 rounded-full p-4 cursor-pointer shadow-lg"> 
+          <div class="bg-orange-500 hover:bg-orange transition-colors duration-200 rounded-full p-4 cursor-pointer shadow-lg"> 
 
           <svg class="w-8 h-8 text-white ml-l"
                 fill="CurrentCollor"

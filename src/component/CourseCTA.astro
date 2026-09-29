@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Button from "../component/button/Button.astro"
+import Heading from "../component/Heading.astro"
+const courseLink = "https://www.udemy.com/course/practical-astro.js/"
+---
+<Layout>
+  <div class="bg-[#d8c49c] grid grid-cols-1 md:grid-cols-2 gap-8 p-32 bg-beige-500 rounded-lg shadow-lg">
+    <div>
+      <h1 class="heading text-6xl">Practical Astro JS <span class="text-purple-700">Udemy Course</span></h1>
+      <p class="text-lg text-gray-700 mb-8 mt-4">
+        Join my Udemy course to learn Astro JS from the ground up. This
+        course is designed for biginners and covers everything you need
+        to know to build modern, fast, and SEO-friendly websites with
+        Astro.
+      </p>
+      <Button href={courseLink}
+              class="orange-btn text-2xl hover:bg-orange-600 text-white font-bold py-2 px-4 p-8 h-14">              
+              Get Course</Button>
+            </div>
+            <div>
+              <img src="https://placehold.co/800x400" alt="Practical Astro JS course image" class="h-[400px] border border-white border-1 mb-4 w-full object-cover" srcset=""/> 
+            </div>
+  </div>
+</Layout>

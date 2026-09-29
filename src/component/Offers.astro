@@ -23,19 +23,20 @@ const services = [
       },
 ];
 ---
-<div class="bg-[#532224] px-4 py-25 text-white">
+<div class="bg-[#532224] px-14 py-25 text-white">
   <div class="grid grid-cols-1 md:grid-cols-2">
     <div class="w-full p-4">
       <Heading text="What I Offer" />
-      <p>
-        I provide expert support to bring your project to life, boost
-        conversion matrics, and demystify complex code structures.
+      <p class="mb-4 mt-8">
+        I provide expert support to bring your project to 
+        life, boost conversion matrics, and demystify complex 
+        code structures.
       </p>
     </div>
     <div>
     {
       services.map ((service: any)=>(
-      <div class="p-5">
+      <div class="p-4">
       <h2 class="orange font bold uppercase text-4xl">{service.title}</h2>
       <h3 class="text-2xl mb-8">{service.role}</h3>
       <ul class="mb-8">

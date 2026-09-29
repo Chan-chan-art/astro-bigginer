@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Button from "../component/button/Button.astro"
+import Heading from '../component/Heading.astro'
+const consultationFormLink = "/"
+import { Icon } from "astro-icon/components";
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://twitter.com/yourprofile",
+    icon: "mdi:linkedin"
+  },
+  {
+    name: "X",
+    url: "https://twitter.com/yourprofile",
+    icon: "mdi:twitter"
+  },
+  {
+    name: "YouTube",
+    url: "https://twitter.com/yourprofile",
+    icon: "mdi:youtube"
+  },
+  {
+    name: "GitHub",
+    url: "",
+    icon: "mdi:github"
+  }
+]
+---
+<Layout>
+  <div class="bg-black p-14 text-white">
+    <Heading text="About Me"/>
+    <p class="max-w-4xl mt-4 mb-8 text-lg">
+     Lorem ipsum dolor sit amet consectetur adipiscing elit. 
+     Culpa occaecat cupiditate eos est proident irure excepturi 
+     at et reprehenderit. In minus id et est dolore dolores in tempor labore ad possimus. 
+     Nostrud ut nostrud duis aute deserunt quo dolorum irure. 
+     Repellendus lorem corrupti id dignissimos quibusdam quos quibusdam. 
+    </p>
+    <div>
+      <ul class="flex flex-wrap gap-4 mb-8">
+        {socialLinks.map((link) => (
+        <li>
+          <a href={link.url}
+             class="flex items-center gap-2 text-lg hover:text-purple-400">
+              <Icon name={link.icon} class="w-16 h-16 p-2" />
+              {link.name}
+             </a>
+        </li>
+        ))}
+      </ul>
+    </div>
+    <Button href={consultationFormLink} class="p-8 text-2xl uppercase bg-purple-500 hover:bg-purple-800">Get A Consultation</Button> 
+    <div class="flex items=right justify-end mt-8">
+    <div class="max-w-xl rounded-l-xl rounded-t-xl bg-white p-8">
+    <p class="text-black text-lg">
+      lorem ipsum dolor sit amet consectetur adipiscing elit irure lorem facilis quos animi 
+      ad magna pariatur anim aut fuga corrupti imperdiet et velit reprehenderit dolorum minim 
+      maxime fugiat aliqua harum ipsum ducimus tempore sint cupidatat fuga in occaecat pariatur 
+      anim blanditiis est consectetur ut adipiscing omnis iusto facilis cum autem.    
+    </p>
+   <Button class="bg-green-500 text-white mt-4">Donate</Button>
+  </div>
+  </div>
+  </div>
+</Layout>
